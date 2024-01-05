@@ -1,0 +1,98 @@
+{
+    "plays": [
+        {
+            "name": "advance",
+            "actions": [
+                "forward 1"
+            ],
+            "type": "move"
+        },
+        {
+            "name": "retreat",
+            "actions": [
+                "back 1"
+            ],
+            "type": "move"
+        },
+        {
+            "name": "dash",
+            "actions": [
+                "forward 2"
+            ],
+            "type": "move"
+        },
+        {
+            "name": "change position",
+            "actions": [
+                "change position"
+            ],
+            "type": "move"
+        },
+        {
+            "name": "high attack",
+            "actions": [
+                "attack"
+            ],
+            "locations": [
+                "+2"
+            ],
+            "position": "high guard",
+            "type": "attack"
+        },
+        {
+            "name": "low attack",
+            "actions": [
+                "attack"
+            ],
+            "locations": [
+                "+1"
+            ],
+            "position": "low guard",
+            "type": "attack"
+        },
+        {
+            "name": "balanced strike",
+            "actions": [
+                "attack"
+            ],
+            "locations": [
+                "0"
+            ],
+            "position": null,
+            "type": "attack"
+        },
+        {
+            "name": "subtle attack",
+            "actions": [
+                "attack",
+                "change position"
+            ],
+            "locations": [
+                "0",
+                "+1"
+            ],
+            "position": "high guard",
+            "type": "special attack"
+        },
+        {
+            "name": "fierce attack",
+            "actions": [
+                "attack",
+                "change position"
+            ],
+            "locations": [
+                "+2",
+                "+3"
+            ],
+            "position": "low guard",
+            "type": "special attack"
+        },
+        {
+            "name": "counterattack",
+            "actions": [
+                "counterattack"
+            ],
+            "type": "special attack"
+        }
+    ]
+}
