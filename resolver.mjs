@@ -1,9 +1,14 @@
 const { platform } = require("os")
 
+const HIGH_GUARD = 0
+const LOW_GUARD = 1
+
 const resolve = (state, plays) =>
 {
     
 }
+
+///////////////////////////////////////////////////////////////////////////////
 
 /**
  * @returns 0, 1 or 'S'
@@ -35,3 +40,35 @@ const isAttack = ({type}) =>
 {
     return type === 'attack' || type === 'special attack'
 }
+
+///////////////////////////////////////////////////////////////////////////////
+
+const plays0 = [
+    {
+        "name": "low attack",
+        "actions": [
+            "attack"
+        ],
+        "locations": [
+            "+1"
+        ],
+        "position": "low guard",
+        "type": "attack"
+    },
+    {
+        "name": "advance",
+        "actions": [
+            "forward 1"
+        ],
+        "type": "move"
+    }
+]
+
+const state0 = {
+    warriors: [
+        { position: 0, stance: HIGH_GUARD, wounds: 1},
+        { position: 4, stance: LOW_GUARD, wounds: 0}
+    ]
+}
+
+console.log('foo')
