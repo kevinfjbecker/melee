@@ -1,7 +1,4 @@
-const { platform } = require("os")
-
-const HIGH_GUARD = 0
-const LOW_GUARD = 1
+import { HIGH_GUARD, LOW_GUARD } from "./GameState.mjs"
 
 const resolve = (state, plays) =>
 {
@@ -71,4 +68,6 @@ const state0 = {
     ]
 }
 
-console.log('foo')
+const resolutionOrder = getResolutionOrder(state0, plays0)
+
+console.log(resolutionOrder)

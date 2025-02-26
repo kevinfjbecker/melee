@@ -27,16 +27,27 @@ export const getBasicStartState = () =>
 })
 
 export const getRandomState = () => ({
-    warriors: [
-        {
-            position: Math.floor(Math.random() * 4),
-            stance: Math.round(Math.random()),
-            wounds: Math.round(Math.random())
-        },
-        {
-            position: Math.floor(Math.random() * 4),
-            stance: Math.round(Math.random()),
-            wounds: Math.round(Math.random())
-        }
-    ]
+    warriors: getRandomPositions().map((p)=>
+    ({
+        position: p,
+        stance: Math.round(Math.random()),
+        wounds: Math.round(Math.random())
+    }))
 })
+
+/**
+ * Random warrior positions
+ * @returns [int, int]
+ * Contraint array[0] <= array[1]
+ */
+const getRandomPositions = () =>
+{
+    let x = 4
+    let y = 0
+    while(x > y)
+    {
+        x = Math.floor( Math.random( ) * 5 )
+        y = Math.floor( Math.random( ) * 5 )
+    }
+    return [x, y]
+}

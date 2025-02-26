@@ -1,6 +1,6 @@
-const fs = require('fs')
+import { readFileSync } from 'fs'
 
-const melee = JSON.parse(fs.readFileSync('./melee.json'))
+const melee = JSON.parse(readFileSync('./melee.json'))
 
 console.log(
     [... new Set(
