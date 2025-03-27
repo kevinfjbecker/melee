@@ -2,7 +2,17 @@ import { HIGH_GUARD, LOW_GUARD } from "./GameState.mjs"
 
 const resolve = (state, plays) =>
 {
-    
+    console.log(`warior in ${
+        state.warriors[0].stance === HIGH_GUARD ? 'high guard' : 'low guard'
+    } playing ${
+        plays[0].name
+    } ${
+        resolutionOrderInWords(getResolutionOrder(state0, plays0))
+    } warior in ${
+        state.warriors[1].stance === HIGH_GUARD ? 'high guard' : 'low guard'
+    } playing ${
+        plays[1].name
+    }`)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -19,12 +29,12 @@ const getResolutionOrder = (state, plays) =>
     // both are moves
 
     if(
-        state.wariors[0].stance === HIGH_GUARD &&
-        state.wariors[1].stance === LOW_GUARD
+        state.warriors[0].stance === HIGH_GUARD &&
+        state.warriors[1].stance === LOW_GUARD
     ) return 0
     if(
-        state.wariors[1].stance === HIGH_GUARD &&
-        state.wariors[0].stance === LOW_GUARD
+        state.warriors[1].stance === HIGH_GUARD &&
+        state.warriors[0].stance === LOW_GUARD
     ) return 1
 }
 
@@ -68,6 +78,18 @@ const state0 = {
     ]
 }
 
-const resolutionOrder = getResolutionOrder(state0, plays0)
+// const resolutionOrder = getResolutionOrder(state0, plays0)
+// console.log(`${resolutionOrderInWords(resolutionOrder)}`)
 
-console.log(resolutionOrder)
+const resolutionOrderInWords = (resolutionOrderResult) =>
+{
+    switch(resolutionOrderResult)
+    {
+        case(0): return 'resolves before'
+        case(1): return 'resolves after'
+        case('S'): return 'resolves simultaneously with'
+        default: return 'ERROR: unknown resolutionOrder '
+    }
+}
+
+resolve(state0, plays0)
