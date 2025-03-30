@@ -1,13 +1,21 @@
-import { getRandomState, HIGH_GUARD, LOW_GUARD } from "./GameState.mjs"
+import { GameState, getRandomState, HIGH_GUARD, LOW_GUARD } from "./GameState.mjs"
+import { allActions } from "./plays.mjs"
+import { stateToString } from "./StringViewer.mjs"
+import { getRandomArrayElementFunction } from "./util.mjs"
 
 export const resolve = (state, plays) => {}
 
 ///////////////////////////////////////////////////////////////////////////////
 
-export const resolveAction = (state, play) =>
+export const resolveAction = (state, action) =>
 {
-    // todo...
+    console.log(stateToString(state))
+    console.log(action)
 }
+
+const getRandomAction = getRandomArrayElementFunction(allActions)
+
+resolveAction(new GameState(getRandomState()), getRandomAction())
 
 ///////////////////////////////////////////////////////////////////////////////
 
