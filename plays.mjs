@@ -1,10 +1,14 @@
-import { readFileSync } from 'fs'
+import * as fs from 'fs'
 
-const melee = JSON.parse(readFileSync('./melee.json'))
+///////////////////////////////////////////////////////////////////////////////
 
-console.log(
+const allPlays = JSON.parse(fs.readFileSync('./melee.json')).plays
+
+///////////////////////////////////////////////////////////////////////////////
+
+export const listPlays = () =>
     [... new Set(
-        melee.plays.map(p =>
+        allPlays.map(p =>
         {
             return p.actions.map(a =>
             {
@@ -14,4 +18,18 @@ console.log(
             })
         }).flat()
     )]
-)
+
+///////////////////////////////////////////////////////////////////////////////
+
+export const getRandomPlays = () =>
+    [
+        allPlays[Math.floor(Math.random() * allPlays.length)],
+        allPlays[Math.floor(Math.random() * allPlays.length)]
+    ]
+
+///////////////////////////////////////////////////////////////////////////////
+
+export const  getPlayByName = (name) =>
+{
+    return allPlays.find(p => p.name === name)
+}
