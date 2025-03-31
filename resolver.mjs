@@ -1,3 +1,4 @@
+import { stat } from "fs"
 import { GameState, getRandomState, HIGH_GUARD, LOW_GUARD } from "./GameState.mjs"
 import { allActions } from "./plays.mjs"
 import { stateToString } from "./StringViewer.mjs"
@@ -7,15 +8,28 @@ export const resolve = (state, plays) => {}
 
 ///////////////////////////////////////////////////////////////////////////////
 
-export const resolveAction = (state, action) =>
+export const resolveAction = (state, action, warrior) =>
 {
     console.log(stateToString(state))
     console.log(action)
+    const nextState = resolveMove(state, action, warrior)
+    console.log(stateToString(nextState))
+}
+
+const resolveMove = (state, action, warrior) =>
+{
+    const warriorIndex = state.state.warriors.indexOf(warrior0)
+    console.log(JSON.stringify(state)) // debug
+    state.state.warriors[warriorIndex].position += 2
+    return state
 }
 
 const getRandomAction = getRandomArrayElementFunction(allActions)
 
-resolveAction(new GameState(getRandomState()), getRandomAction())
+const state0 = new GameState()
+const action0 = 'forward 2'
+const warrior0 = state0.state.warriors[0]
+resolveAction(state0, action0, warrior0)
 
 ///////////////////////////////////////////////////////////////////////////////
 
